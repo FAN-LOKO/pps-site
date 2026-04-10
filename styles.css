@@ -4539,3 +4539,309 @@ copyright,
     border-radius: 24px;
   }
 }
+
+/* =========================================================
+   Блок 15: Первые шаги
+   Серый фон задаётся секцией: .specialists.section-gray
+   ========================================================= */
+
+.first-steps-block {
+    max-width: 1400px;
+    width: 100%;
+    background: #ffffff;
+    border-radius: 56px;
+    padding: 60px 50px;
+    box-shadow: 0 30px 60px -15px rgba(0, 30, 60, 0.15);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(33, 150, 243, 0.1);
+}
+
+.first-steps-block::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(33, 150, 243, 0.03) 0%, rgba(33, 150, 243, 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.first-steps-content {
+    position: relative;
+    z-index: 2;
+}
+
+.first-steps-header {
+    margin-bottom: 60px;
+    max-width: 700px;
+}
+
+.first-steps-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(33, 150, 243, 0.08);
+    border: 1px solid rgba(33, 150, 243, 0.15);
+    border-radius: 100px;
+    padding: 8px 22px;
+    margin-bottom: 24px;
+    color: #1976d2;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.first-steps-chip i {
+    color: #2196f3;
+}
+
+.first-steps-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #0a2540;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.first-steps-gradient-text {
+    background: linear-gradient(135deg, #1976d2, #2196f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.first-steps-description {
+    font-size: 18px;
+    color: #2c4c6e;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+.first-steps-row {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 15px;
+    margin: 50px 0 20px;
+    flex-wrap: wrap;
+}
+
+.first-steps-card {
+    flex: 1;
+    min-width: 250px;
+    max-width: 300px;
+    background: #f8fcff;
+    border-radius: 32px;
+    padding: 30px 25px;
+    border: 1px solid rgba(33, 150, 243, 0.15);
+    position: relative;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    text-align: left;
+    box-shadow: 0 15px 30px -12px rgba(0, 0, 0, 0.1);
+    height: 380px;
+}
+
+.first-steps-card:hover {
+    transform: translateY(-10px);
+    border-color: #2196f3;
+    box-shadow: 0 25px 40px -15px rgba(33, 150, 243, 0.25);
+}
+
+.first-steps-number {
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(145deg, #2196f3, #1e88e5);
+    border-radius: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-weight: 700;
+    font-size: 22px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 15px -5px rgba(33, 150, 243, 0.9);
+}
+
+.first-steps-icon {
+    font-size: 32px;
+    color: #2196f3;
+    margin-bottom: 15px;
+    align-self: center;
+}
+
+.first-steps-card-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 15px;
+    align-self: center;
+    text-align: center;
+    width: 100%;
+}
+
+.first-steps-card-description {
+    font-size: 15px;
+    color: #4a6075;
+    line-height: 1.6;
+    flex: 1;
+    width: 100%;
+}
+
+.first-steps-card-description ul {
+    padding-left: 20px;
+    margin-top: 5px;
+}
+
+.first-steps-card-description li {
+    margin-bottom: 8px;
+}
+
+.first-steps-card-description strong {
+    color: #2196f3;
+    font-weight: 600;
+}
+
+.first-steps-arrow {
+    display: flex;
+    align-items: center;
+    color: #2196f3;
+    font-size: 32px;
+    opacity: 0.5;
+    margin: 0 -5px;
+    height: 380px;
+}
+
+.first-steps-arrow i {
+    filter: drop-shadow(0 5px 10px rgba(33, 150, 243, 0.2));
+}
+
+@media (max-width: 1200px) {
+    .first-steps-card {
+        min-width: 220px;
+        height: 400px;
+    }
+
+    .first-steps-arrow {
+        height: 400px;
+    }
+}
+
+@media (max-width: 1000px) {
+    .first-steps-row {
+        gap: 10px;
+    }
+
+    .first-steps-card {
+        min-width: 200px;
+        padding: 25px 20px;
+        height: 420px;
+    }
+
+    .first-steps-arrow {
+        height: 420px;
+        font-size: 28px;
+    }
+
+    .first-steps-card-title {
+        font-size: 18px;
+    }
+
+    .first-steps-card-description {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 900px) {
+    .first-steps-block {
+        padding: 45px 35px;
+    }
+
+    .first-steps-title {
+        font-size: 42px;
+    }
+
+    .first-steps-row {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .first-steps-arrow {
+        transform: rotate(90deg);
+        margin: 5px 0;
+        height: auto;
+    }
+
+    .first-steps-card {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        min-height: 320px;
+    }
+}
+
+@media (max-width: 700px) {
+    .first-steps-block {
+        padding: 35px 25px;
+        border-radius: 40px;
+    }
+
+    .first-steps-title {
+        font-size: 36px;
+    }
+
+    .first-steps-header {
+        margin-bottom: 40px;
+    }
+
+    .first-steps-description {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .first-steps-block {
+        padding: 28px 20px;
+        border-radius: 28px;
+    }
+
+    .first-steps-title {
+        font-size: 30px;
+    }
+
+    .first-steps-chip {
+        font-size: 12px;
+        padding: 7px 16px;
+    }
+
+    .first-steps-card {
+        min-width: 100%;
+        max-width: 100%;
+        border-radius: 24px;
+        padding: 24px 18px;
+    }
+
+    .first-steps-number {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+        border-radius: 21px;
+        margin-bottom: 16px;
+    }
+
+    .first-steps-icon {
+        font-size: 28px;
+    }
+
+    .first-steps-card-title {
+        font-size: 17px;
+    }
+
+    .first-steps-card-description {
+        font-size: 14px;
+    }
+}
