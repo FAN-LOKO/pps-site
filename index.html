@@ -3871,6 +3871,24 @@
   window.shareVia = function (channel) {
     alert('Поделиться через: ' + channel);
   };
+
+   // Аккордеон блока "Целевые программы"
+document.querySelectorAll('.target-programs-item-header').forEach(header => {
+    header.addEventListener('click', function () {
+        const item = this.closest('.target-programs-item');
+        if (!item) return;
+
+        const isActive = item.classList.contains('active');
+
+        document.querySelectorAll('.target-programs-item').forEach(el => {
+            el.classList.remove('active');
+        });
+
+        if (!isActive) {
+            item.classList.add('active');
+        }
+    });
+});
 </script>
 </body>
 </html>
