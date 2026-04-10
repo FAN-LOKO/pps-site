@@ -4172,6 +4172,104 @@ document.querySelectorAll('.target-programs-item-header').forEach(header => {
         }
     });
 });
+
+   // Блок 21: Порекомендуйте сервис
+(function () {
+    const categoryData = {
+        ceo: {
+            text: '📊 Сервис «Программа поддержки сотрудников». Отличный способ повысить эффективность и устойчивость команды — всё в одном сервисе. Сайт:',
+            link: 'https://eap.mponline.ru'
+        },
+        hr: {
+            text: '📊 Сервис «Программа поддержки сотрудников». Готовое решение для соцпакета: поддержка сотрудников, рост eNPS и имиджа работодателя. Ссылка:',
+            link: 'https://eap.mponline.ru'
+        },
+        teamlead: {
+            text: '📊 Привет! Есть крутой сервис поддержки сотрудников. Помогает команде решать личные вопросы, снижает выгорание и конфликты. Подробнее:',
+            link: 'https://eap.mponline.ru'
+        },
+        employee: {
+            text: '📊 Привет! Хочу поделиться сервисом поддержки сотрудников. Помогает с личными вопросами — психолог, юрист, коуч. Давай попросим руководителя подключить такой сервис. Сайт:',
+            link: 'https://eap.mponline.ru'
+        },
+        b2b: {
+            text: '📊 Привет! Если у вас в компании ещё нет программы поддержки сотрудников, посмотри этот сервис. Помогает людям и повышает эффективность. Сайт:',
+            link: 'https://eap.mponline.ru'
+        },
+        hrcommunity: {
+            text: '📊 Коллеги! Рекомендую сервис «Программа поддержки сотрудников» как готовое решение для соцпакета. Быстро внедряется, реально помогает людям и повышает вовлечённость. Сайт:',
+            link: 'https://eap.mponline.ru'
+        }
+    };
+
+    const cards = document.querySelectorAll('.recommend-card');
+    const messageEl = document.getElementById('recommendMessageText');
+    const linkInput = document.getElementById('recommendLinkInput');
+    const copyBtn = document.querySelector('.recommend-copy-btn');
+    const shareButtons = document.querySelectorAll('.recommend-share-btn');
+
+    if (!cards.length || !messageEl || !linkInput || !copyBtn) return;
+
+    function updatePanel(category) {
+        const data = categoryData[category];
+        if (!data) return;
+        messageEl.textContent = data.text + ' ' + data.link;
+        linkInput.value = data.link;
+    }
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const category = card.getAttribute('data-category');
+            cards.forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            updatePanel(category);
+        });
+    });
+
+    copyBtn.addEventListener('click', () => {
+        linkInput.select();
+        linkInput.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(linkInput.value).then(() => {
+            const originalHtml = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+            copyBtn.style.background = '#4CAF50';
+            setTimeout(() => {
+                copyBtn.innerHTML = originalHtml;
+                copyBtn.style.background = '#2196F3';
+            }, 1500);
+        }).catch(() => {
+            alert('Не удалось скопировать. Выделите ссылку вручную.');
+        });
+    });
+
+    shareButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const platform = btn.getAttribute('data-platform');
+            const text = encodeURIComponent(messageEl.textContent);
+            const url = encodeURIComponent(linkInput.value || 'https://eap.mponline.ru');
+
+            let shareUrl = '#';
+
+            if (platform === 'telegram') {
+                shareUrl = `https://t.me/share/url?url=${url}&text=${text}`;
+                window.open(shareUrl, '_blank');
+            } else if (platform === 'vk') {
+                shareUrl = `https://vk.com/share.php?url=${url}&title=${encodeURIComponent('Программа поддержки сотрудников')}&description=${text}`;
+                window.open(shareUrl, '_blank');
+            } else if (platform === 'tenchat' || platform === 'max') {
+                alert('Скопируйте ссылку и поделитесь в выбранном мессенджере.');
+                copyBtn.click();
+            }
+        });
+    });
+
+    // Стартовое состояние
+    const defaultCard = document.querySelector('.recommend-card[data-category="ceo"]');
+    if (defaultCard) {
+        defaultCard.classList.add('selected');
+        updatePanel('ceo');
+    }
+})();
 </script>
 </body>
 </html>
