@@ -655,6 +655,10 @@ nav a:hover::after,
   background-color: var(--light);
 }
 
+.benefits-white {
+  background-color: #ffffff;
+}
+
 .benefits-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
