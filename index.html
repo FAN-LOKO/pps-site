@@ -3705,6 +3705,139 @@ if (readyCtaButton) {
         }
     });
 }
+
+   // ==========================
+// "Порекомендовать нас"
+// ==========================
+(function () {
+    const recommendBtn = document.getElementById('recommendBtn');
+    const recommendModal = document.getElementById('recommendModal');
+    const overlay = document.getElementById('recommendModalOverlay');
+    const closeBtn = document.getElementById('closeRecommendModalBtn');
+    const messageEl = document.getElementById('recommendMessageText');
+    const linkInput = document.getElementById('recommendLinkInput');
+    const copyBtn = document.querySelector('.recommend-copy-btn');
+    const cards = document.querySelectorAll('.recommend-card');
+    const shareButtons = document.querySelectorAll('.recommend-share-btn');
+
+    if (!recommendBtn || !recommendModal || !overlay) return;
+
+    const categoryData = {
+        ceo: {
+            text: '📊 Сервис «Программа поддержки сотрудников». Отличный способ повысить эффективность сотрудников на работе — всё в одном сервисе. Сайт: https://eap.mponline.ru/',
+            link: 'https://eap.mponline.ru/'
+        },
+        hr: {
+            text: '📊 Сервис «Программа поддержки сотрудников». Отличный способ повысить эффективность сотрудников на работе — всё в одном сервисе. Сотрудники будут благодарны. Ссылка: https://eap.mponline.ru/',
+            link: 'https://eap.mponline.ru/'
+        },
+        teamlead: {
+            text: '📊 Привет! Хочу поделиться — есть крутой сервис поддержки сотрудников. Помогает в решении личных вопросов. Команде точно пригодится. Подробнее: https://eap.mponline.ru/',
+            link: 'https://eap.mponline.ru/'
+        },
+        employee: {
+            text: '📊 Привет! Хочу поделиться — есть крутой сервис поддержки сотрудников. Помогает в решении личных вопросов. Давай попросим руководителя подключить нам такой? Сайт: https://eap.mponline.ru/',
+            link: 'https://eap.mponline.ru/'
+        },
+        b2b: {
+            text: '📊 Привет! Если у вас в компании ещё нет поддержки сотрудников — посмотри этот сервис. Помогает в решении личных вопросов сотрудников. Сайт: https://eap.mponline.ru/',
+            link: 'https://eap.mponline.ru/'
+        },
+        hrcommunity: {
+            text: '📊 Коллеги! Рекомендую обратить внимание на «Программу поддержки сотрудников». Готовое решение для соцпакета. Внедряется быстро, людям реально помогает в повседневной жизни. Повышает эффективность сотрудников на работе. Сайт: https://eap.mponline.ru/',
+            link: 'https://eap.mponline.ru/'
+        }
+    };
+
+    function openRecommendModal() {
+        recommendModal.classList.add('active');
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeRecommendModal() {
+        recommendModal.classList.remove('active');
+        overlay.classList.remove('active');
+        document.body.style.overflow = '';
+    }
+
+    recommendBtn.addEventListener('click', function (e) {
+        e.preventDefault();
+        openRecommendModal();
+    });
+
+    closeBtn.addEventListener('click', closeRecommendModal);
+    overlay.addEventListener('click', closeRecommendModal);
+
+    // Выбор категории
+    function selectCategory(category) {
+        cards.forEach(function (card) {
+            card.classList.toggle('selected', card.dataset.category === category);
+        });
+
+        const data = categoryData[category];
+        if (data) {
+            messageEl.innerText = data.text;
+            linkInput.value = data.link;
+        }
+    }
+
+    cards.forEach(function (card) {
+        card.addEventListener('click', function () {
+            const category = card.dataset.category;
+            selectCategory(category);
+        });
+    });
+
+    // Копирование ссылки
+    copyBtn.addEventListener('click', function () {
+        linkInput.select();
+        try {
+            document.execCommand('copy');
+        } catch (e) {
+            navigator.clipboard && navigator.clipboard.writeText(linkInput.value);
+        }
+
+        const original = copyBtn.innerHTML;
+        copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+        copyBtn.style.background = '#4CAF50';
+
+        setTimeout(function () {
+            copyBtn.innerHTML = original;
+            copyBtn.style.background = '#2196F3';
+        }, 1500);
+    });
+
+    // Поделиться
+    shareButtons.forEach(function (btn) {
+        btn.addEventListener('click', function () {
+            const platform = btn.dataset.platform;
+            const fullText = messageEl.innerText;
+            const link = linkInput.value;
+
+            if (platform === 'vk') {
+                const textWithoutLink = fullText.replace(link, '').trim();
+                const params = new URLSearchParams({
+                    url: link,
+                    title: 'Программа поддержки сотрудников',
+                    description: textWithoutLink
+                });
+                window.open('https://vk.com/share.php?' + params.toString(), '_blank', 'width=700,height=550');
+            } else if (platform === 'telegram') {
+                window.open(
+                    'https://t.me/share/url?url=' + encodeURIComponent(link) +
+                    '&text=' + encodeURIComponent(fullText),
+                    '_blank'
+                );
+            } else {
+                alert('Скопируйте текст и ссылку и поделитесь вручную.');
+            }
+        });
+    });
+
+    // Стартовая категория
+    selectCategory('ceo');
+})();
    
 </script>
 </body>
