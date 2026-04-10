@@ -697,6 +697,10 @@ nav a:hover::after,
   margin-bottom: 15px;
 }
 
+.benefits-white {
+  background: #ffffff;
+}
+
 /* Как получить доступ */
 .access {
   padding: 80px 0;
