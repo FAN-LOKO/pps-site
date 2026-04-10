@@ -2746,6 +2746,34 @@
     </div>
 </section>
 
+  <!-- Блок 23: Готовы внедрить -->
+<section class="specialists section-gray" id="ready-to-implement">
+    <div class="container">
+        <div class="ready-cta-block">
+            <div class="ready-cta-content">
+                <div class="ready-cta-chip">
+                    <i class="fas fa-briefcase"></i>
+                    <span>ГОТОВЫ ВНЕДРИТЬ</span>
+                </div>
+
+                <h2 class="ready-cta-title">
+                    Готовы внедрить программу <span>в вашей компании?</span>
+                </h2>
+
+                <p class="ready-cta-text">
+                    Мы подготовили индивидуальные решения для компаний разного размера и отрасли.
+                    Получите бесплатную консультацию и расчёт ROI для вашего бизнеса.
+                </p>
+
+                <button class="ready-cta-button" id="readyCtaButton" type="button">
+                    <span>Получить ЕАР</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
   
   
   
@@ -4555,6 +4583,99 @@ document.querySelectorAll('.target-programs-item-header').forEach(header => {
     updateStars(currentRating);
     updateMessage();
 })();
+
+   // Блок 23: Готовы внедрить
+const readyCtaButton = document.getElementById('readyCtaButton');
+
+if (readyCtaButton) {
+    readyCtaButton.addEventListener('click', function () {
+        const modalHtml = `
+            <div class="modal-overlay" style="
+                position: fixed;
+                inset: 0;
+                background: rgba(0, 0, 0, 0.7);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                z-index: 2000;
+                padding: 20px;
+            ">
+                <div class="modal-content" style="
+                    background: white;
+                    padding: 40px;
+                    border-radius: 20px;
+                    max-width: 520px;
+                    width: 100%;
+                    position: relative;
+                ">
+                    <button class="modal-close" style="
+                        position: absolute;
+                        top: 15px;
+                        right: 15px;
+                        background: none;
+                        border: none;
+                        font-size: 24px;
+                        cursor: pointer;
+                        color: #666;
+                    ">&times;</button>
+
+                    <h2 style="color: #2c3e50; margin-bottom: 18px;">Получить ЕАР</h2>
+
+                    <p style="margin-bottom: 24px; color: #666; line-height: 1.6;">
+                        Оставьте контакты, и наш специалист свяжется с вами для бесплатной консультации
+                        и расчёта ROI под вашу компанию.
+                    </p>
+
+                    <form id="readyCtaForm" style="display: flex; flex-direction: column; gap: 14px;">
+                        <input type="text" placeholder="Ваше имя" required style="padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px;">
+                        <input type="text" placeholder="Должность" required style="padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px;">
+                        <input type="text" placeholder="Название компании" required style="padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px;">
+                        <input type="email" placeholder="Email" required style="padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px;">
+                        <input type="tel" placeholder="Телефон" required style="padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px;">
+                        <input type="number" placeholder="Количество сотрудников" style="padding: 12px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px;">
+
+                        <button type="submit" style="
+                            background: linear-gradient(145deg, #2196F3, #1e88e5);
+                            color: white;
+                            padding: 15px;
+                            border: none;
+                            border-radius: 10px;
+                            font-weight: 700;
+                            cursor: pointer;
+                            font-size: 16px;
+                            margin-top: 8px;
+                        ">
+                            Отправить заявку
+                        </button>
+                    </form>
+                </div>
+            </div>
+        `;
+
+        document.body.insertAdjacentHTML('beforeend', modalHtml);
+
+        const overlay = document.querySelector('.modal-overlay');
+        if (!overlay) return;
+
+        overlay.addEventListener('click', function (e) {
+            if (
+                e.target.classList.contains('modal-overlay') ||
+                e.target.classList.contains('modal-close')
+            ) {
+                overlay.remove();
+            }
+        });
+
+        const form = document.getElementById('readyCtaForm');
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                alert('Спасибо! Мы получили заявку и скоро свяжемся с вами.');
+                overlay.remove();
+            });
+        }
+    });
+}
    
 </script>
 </body>
