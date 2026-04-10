@@ -4417,6 +4417,145 @@ document.querySelectorAll('.target-programs-item-header').forEach(header => {
         updatePanel('ceo');
     }
 })();
+
+   // Блок 22: Оставить отзыв
+(function () {
+    const specialistData = {
+        psychologist: {
+            name: 'Психолог',
+            icon: '🧠',
+            text: 'Прекрасный специалист, помог разобраться в моём состоянии. Очень чуткий и профессиональный подход.'
+        },
+        lawyer: {
+            name: 'Юрист',
+            icon: '⚖️',
+            text: 'Грамотный юрист: всё объяснил простым языком, помог с документами и уменьшил уровень стресса.'
+        },
+        coach: {
+            name: 'Коуч-тренер',
+            icon: '🎯',
+            text: 'Помог сформулировать цели и увидеть новые варианты. Чувствую больше ясности и мотивации.'
+        },
+        fitness: {
+            name: 'Фитнес-тренер',
+            icon: '💪',
+            text: 'Отличные тренировки, всё по силам и без фанатизма. Результат видно, заниматься приятно.'
+        },
+        vet: {
+            name: 'Зооконсультант',
+            icon: '🐾',
+            text: 'Подсказал по питанию и уходу за питомцем. Стало спокойнее и мне, и животному.'
+        },
+        tax: {
+            name: 'Налоговый консультант',
+            icon: '💰',
+            text: 'Разобрали вычеты и возвраты, всё стало понятно. Сэкономили время и деньги.'
+        }
+    };
+
+    const ratingWords = ['', 'Ужасно', 'Плохо', 'Нормально', 'Хорошо', 'Отлично'];
+    const ratingPhrases = ['', 'Ужасно.', 'Плохо.', 'Нормально.', 'Хорошо.', 'Отлично!'];
+
+    const cards = document.querySelectorAll('.feedback-specialist-card');
+    const stars = document.querySelectorAll('.feedback-star');
+    const ratingText = document.getElementById('feedbackRatingText');
+    const messageEl = document.getElementById('feedbackMessageText');
+    const linkInput = document.getElementById('feedbackLinkInput');
+    const copyBtn = document.querySelector('.feedback-copy-btn');
+    const shareButtons = document.querySelectorAll('.feedback-share-btn');
+
+    if (!cards.length || !stars.length || !messageEl || !linkInput || !copyBtn) return;
+
+    let currentSpecialist = 'psychologist';
+    let currentRating = 5;
+
+    function updateMessage() {
+        const data = specialistData[currentSpecialist];
+        if (!data) return;
+        const phrase = ratingPhrases[currentRating] || '';
+        messageEl.textContent =
+            `${data.icon} ${data.name}. Оценка: ${currentRating}/5. ${phrase} ${data.text} Сервис: https://eap.mponline.ru`;
+        linkInput.value = 'https://eap.mponline.ru';
+    }
+
+    function updateStars(rating) {
+        stars.forEach((btn, index) => {
+            btn.classList.toggle('active', index < rating);
+        });
+        const word = ratingWords[rating] || 'Оцените специалиста';
+        ratingText.textContent = `${word}${rating ? ` (${rating}/5)` : ''}`;
+    }
+
+    cards.forEach(card => {
+        card.addEventListener('click', () => {
+            const specialist = card.getAttribute('data-specialist');
+            if (!specialist || specialist === currentSpecialist) return;
+            currentSpecialist = specialist;
+            cards.forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+            updateMessage();
+        });
+    });
+
+    stars.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const value = Number(btn.getAttribute('data-rating')) || 0;
+            if (!value) return;
+            currentRating = value;
+            updateStars(currentRating);
+            updateMessage();
+        });
+    });
+
+    copyBtn.addEventListener('click', () => {
+        linkInput.select();
+        linkInput.setSelectionRange(0, 99999);
+        navigator.clipboard.writeText(linkInput.value).then(() => {
+            const originalHtml = copyBtn.innerHTML;
+            copyBtn.innerHTML = '<i class="fas fa-check"></i>';
+            copyBtn.style.background = '#4CAF50';
+            setTimeout(() => {
+                copyBtn.innerHTML = originalHtml;
+                copyBtn.style.background = 'linear-gradient(145deg, #2196F3, #1e88e5)';
+            }, 1500);
+        }).catch(() => {
+            alert('Не удалось скопировать. Выделите ссылку вручную.');
+        });
+    });
+
+    shareButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const platform = btn.getAttribute('data-platform');
+            const fullText = messageEl.textContent;
+            const link = linkInput.value || 'https://eap.mponline.ru';
+
+            if (platform === 'telegram') {
+                const url = `https://t.me/share/url?url=${encodeURIComponent(link)}&text=${encodeURIComponent(fullText)}`;
+                window.open(url, '_blank');
+            } else if (platform === 'vk') {
+                const params = new URLSearchParams({
+                    url: link,
+                    title: `Отзыв о ${specialistData[currentSpecialist].name}`,
+                    description: fullText,
+                    noparse: 'false'
+                });
+                window.open(`https://vk.com/share.php?${params.toString()}`, '_blank');
+            } else if (platform === 'tenchat' || platform === 'max') {
+                alert('Скопируйте текст и ссылку и поделитесь в выбранном мессенджере.');
+                copyBtn.click();
+            }
+        });
+    });
+
+    // Стартовое состояние
+    const defaultCard = document.querySelector('.feedback-specialist-card[data-specialist="psychologist"]');
+    if (defaultCard) {
+        defaultCard.classList.add('selected');
+    }
+    updateStars(currentRating);
+    updateMessage();
+})();
+   
 </script>
 </body>
 </html>
