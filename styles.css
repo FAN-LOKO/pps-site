@@ -1865,6 +1865,268 @@ nav a:hover::after,
   color: #64b5f6;
 }
 
+/* Помощь на дороге */
+.roadside {
+  padding: 80px 20px;
+  background: #ffffff;
+}
+
+.roadside-block {
+  background: #ffffff;
+  border-radius: 32px;
+  padding: 50px 44px;
+  box-shadow: var(--card-shadow);
+  border: 1px solid rgba(52, 152, 219, 0.12);
+}
+
+.roadside .header {
+  margin-bottom: 32px;
+}
+
+.roadside .chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(33, 150, 243, 0.08);
+  color: #1d4ed8;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.roadside .chip i {
+  color: #2196f3;
+}
+
+.roadside .header h2 {
+  font-size: 2.2rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.roadside .gradient-text {
+  background: linear-gradient(135deg, #1565c0, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+}
+
+.roadside .description {
+  color: #4b5563;
+  max-width: 800px;
+}
+
+/* Intro */
+.service-intro {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  margin: 32px 0 24px;
+}
+
+.service-intro .intro-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  background: rgba(33, 150, 243, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #2196f3;
+}
+
+.service-intro .intro-text {
+  flex: 1;
+  color: #374151;
+}
+
+.service-intro .badge {
+  align-self: flex-start;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.08);
+  color: #047857;
+  font-size: 13px;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Аккордеон */
+.services-accordion {
+  margin-top: 24px;
+  border-radius: 20px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  padding: 12px;
+}
+
+.service-accordion-item + .service-accordion-item {
+  margin-top: 8px;
+}
+
+.service-accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: #ffffff;
+  cursor: pointer;
+  transition: background 0.2s ease, box-shadow 0.2s ease, transform 0.1s ease;
+}
+
+.service-accordion-header:hover {
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.08);
+  transform: translateY(-1px);
+}
+
+.service-accordion-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.service-accordion-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 999px;
+  background: rgba(59, 130, 246, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1d4ed8;
+}
+
+.service-accordion-title {
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.service-accordion-right {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.service-accordion-badge {
+  font-size: 12px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(16, 185, 129, 0.08);
+  color: #047857;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.service-accordion-arrow {
+  font-size: 14px;
+  color: #6b7280;
+  transition: transform 0.2s ease;
+}
+
+.service-accordion-item.active .service-accordion-arrow {
+  transform: rotate(180deg);
+}
+
+.service-accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.25s ease, padding 0.2s ease;
+}
+
+.service-accordion-item.active .service-accordion-content {
+  max-height: 500px; /* достаточно для текста */
+}
+
+.service-accordion-inner {
+  padding: 0 16px 12px 64px;
+}
+
+.service-description {
+  font-size: 0.95rem;
+  color: #4b5563;
+}
+
+/* Опция подключения */
+.option-block {
+  margin-top: 32px;
+  padding: 20px 24px;
+  border-radius: 20px;
+  background: #f9fafb;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.option-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  color: var(--primary);
+}
+
+.option-content p {
+  font-size: 0.95rem;
+  color: #4b5563;
+  margin: 0;
+}
+
+.option-btn {
+  border: none;
+  border-radius: 999px;
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  color: #ffffff;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+/* Города */
+.cities {
+  margin-top: 32px;
+}
+
+.cities-title {
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.cities-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.city-tag {
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: #eef2ff;
+  color: #1e3a8a;
+  font-size: 13px;
+}
+
+.geo-info {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #4b5563;
+}
+
 /* Преимущества ГОСТ */
 .gost-benefits {
   list-style: none;
