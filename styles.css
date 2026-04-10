@@ -1,3 +1,10 @@
+/* =========================================================
+   PPS SITE — FINAL CLEANED STYLES
+   Файл упорядочен комментариями по блокам сайта.
+   Базовая логика и имена классов сохранены.
+   Внесено точечное исправление: '..trusted-logos' -> '.trusted-logos'.
+   ========================================================= */
+
 html {
   scroll-behavior: smooth;
 }
@@ -790,7 +797,7 @@ nav a:hover::after,
   background: #ffffff;
 }
 
-..trusted-logos {
+.trusted-logos {
   display: flex;
   align-items: center;
   justify-content: center;
