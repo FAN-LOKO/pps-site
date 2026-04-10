@@ -3519,3 +3519,300 @@ copyright,
     font-size: 16px;
   }
 }
+
+/* Отзывы клиентов - Помощь на дороге */
+.reviews-block {
+  max-width: 1300px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 56px;
+  padding: 60px 50px;
+  box-shadow: 0 30px 60px -15px rgba(0, 30, 60, 0.15);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(33, 150, 243, 0.1);
+}
+
+.reviews-block::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 500px;
+  height: 500px;
+  background: radial-gradient(circle, rgba(33, 150, 243, 0.03) 0%, rgba(33, 150, 243, 0) 70%);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.road-reviews-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Заголовок */
+.road-reviews-header {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.road-reviews-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(33, 150, 243, 0.08);
+  border: 1px solid rgba(33, 150, 243, 0.15);
+  border-radius: 100px;
+  padding: 8px 22px;
+  margin-bottom: 24px;
+  color: #1976d2;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.road-reviews-chip i {
+  color: #2196f3;
+}
+
+.road-reviews-header h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #0a2540;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.road-reviews-gradient-text {
+  background: linear-gradient(135deg, #1976d2, #2196f3);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.road-reviews-description {
+  font-size: 18px;
+  color: #2c4c6e;
+  line-height: 1.6;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Отзывы */
+.road-reviews-section {
+  margin-top: 30px;
+}
+
+.road-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.road-review-card {
+  background: #f8fcff;
+  border-radius: 32px;
+  padding: 25px;
+  border: 1px solid rgba(33, 150, 243, 0.15);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.road-review-card:hover {
+  transform: translateY(-8px);
+  border-color: #2196f3;
+  box-shadow: 0 20px 30px -10px rgba(33, 150, 243, 0.15);
+}
+
+.road-review-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.road-review-avatar {
+  width: 56px;
+  height: 56px;
+  background: linear-gradient(145deg, #e3f2fd, #bbdefb);
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  color: #1976d2;
+  flex-shrink: 0;
+}
+
+.road-review-info h4 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #0a2540;
+  margin-bottom: 4px;
+}
+
+.road-review-info p {
+  font-size: 14px;
+  color: #4a6075;
+}
+
+.road-review-rating {
+  color: #ffb800;
+  font-size: 16px;
+  margin-top: 5px;
+}
+
+.road-review-rating i {
+  margin-right: 2px;
+}
+
+.road-review-text {
+  font-size: 15px;
+  color: #2c4c6e;
+  line-height: 1.6;
+  margin: 10px 0;
+  font-style: italic;
+  position: relative;
+  padding-left: 15px;
+  border-left: 3px solid #2196f3;
+}
+
+.road-review-screenshot {
+  width: 100%;
+  height: 200px;
+  background: #e9f2fa;
+  border-radius: 20px;
+  border: 2px dashed #2196f3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #2196f3;
+  font-size: 14px;
+  gap: 10px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: all 0.3s;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="%232196F3" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="18" rx="2" ry="2"></rect><line x1="9" y1="9" x2="15" y2="9"></line><line x1="9" y1="13" x2="15" y2="13"></line><line x1="9" y1="17" x2="13" y2="17"></line></svg>');
+  background-repeat: no-repeat;
+  background-position: center 40px;
+  background-size: 48px;
+  padding-top: 100px;
+  text-align: center;
+}
+
+.road-review-screenshot:hover {
+  background-color: #d4e6f5;
+  border-color: #1976d2;
+}
+
+.road-review-screenshot span {
+  background: #ffffff;
+  padding: 6px 16px;
+  border-radius: 30px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+/* Кнопка */
+.road-show-more-container {
+  display: flex;
+  justify-content: center;
+  margin: 40px 0 20px;
+}
+
+.road-show-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  background: #ffffff;
+  color: #2196f3;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 16px 45px;
+  border-radius: 60px;
+  border: 2px solid #2196f3;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.1);
+}
+
+.road-show-more-btn:hover {
+  background: #2196f3;
+  color: #ffffff;
+  transform: translateY(-3px);
+  box-shadow: 0 15px 30px -8px rgba(33, 150, 243, 0.45);
+}
+
+.road-show-more-btn i {
+  font-size: 18px;
+  transition: transform 0.3s;
+}
+
+.road-show-more-btn:hover i {
+  transform: translateX(5px);
+}
+
+#moreRoadReviewsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* Адаптивность */
+@media (max-width: 1000px) {
+  .road-reviews-header h2 {
+    font-size: 2.6rem;
+  }
+
+  .road-reviews-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .reviews-block {
+    padding: 40px 30px;
+    border-radius: 40px;
+  }
+
+  .road-reviews-header h2 {
+    font-size: 2.25rem;
+  }
+
+  .road-reviews-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .reviews-block {
+    padding: 28px 20px;
+    border-radius: 28px;
+  }
+
+  .road-reviews-header {
+    margin-bottom: 36px;
+  }
+
+  .road-reviews-header h2 {
+    font-size: 1.95rem;
+  }
+
+  .road-reviews-description {
+    font-size: 16px;
+  }
+
+  .road-review-card {
+    border-radius: 24px;
+    padding: 20px;
+  }
+
+  .road-show-more-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 16px 24px;
+    font-size: 16px;
+  }
+}
