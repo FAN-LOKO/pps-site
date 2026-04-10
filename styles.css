@@ -4853,3 +4853,346 @@ copyright,
         font-size: 20px;
     }
 }
+
+/* =========================================================
+   Блок 16: Как получить доступ сотруднику
+   Белый фон секции задаётся классом .access
+   ========================================================= */
+
+.employee-access-block {
+    width: 100%;
+    background: #ffffff;
+    border-radius: 56px;
+    padding: 60px 50px;
+    box-shadow: 0 30px 60px -15px rgba(0, 30, 60, 0.15);
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(33, 150, 243, 0.1);
+}
+
+.employee-access-block::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(33, 150, 243, 0.03) 0%, rgba(33, 150, 243, 0) 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.employee-access-content {
+    position: relative;
+    z-index: 2;
+}
+
+.employee-access-header {
+    margin-bottom: 50px;
+    max-width: 700px;
+}
+
+.employee-access-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(33, 150, 243, 0.08);
+    border: 1px solid rgba(33, 150, 243, 0.15);
+    border-radius: 100px;
+    padding: 8px 22px;
+    margin-bottom: 24px;
+    color: #1976d2;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.employee-access-chip i {
+    color: #2196f3;
+}
+
+.employee-access-title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #0a2540;
+    line-height: 1.2;
+    margin-bottom: 20px;
+}
+
+.employee-access-gradient-text {
+    background: linear-gradient(135deg, #1976d2, #2196f3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.employee-access-description {
+    font-size: 18px;
+    color: #2c4c6e;
+    line-height: 1.6;
+    max-width: 600px;
+}
+
+/* Две колонки */
+
+.employee-access-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 40px;
+    margin: 40px 0 20px;
+}
+
+/* Левая колонка */
+
+.employee-access-info-column {
+    background: #f8fcff;
+    border-radius: 32px;
+    padding: 35px;
+    border: 1px solid rgba(33, 150, 243, 0.15);
+}
+
+.employee-access-info-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.employee-access-info-title i {
+    color: #2196f3;
+    font-size: 28px;
+}
+
+.employee-access-info-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.employee-access-info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.employee-access-info-icon {
+    width: 48px;
+    height: 48px;
+    background: #ffffff;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #2196f3;
+    font-size: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(33, 150, 243, 0.1);
+}
+
+.employee-access-info-text {
+    flex: 1;
+}
+
+.employee-access-info-text h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 8px;
+}
+
+.employee-access-info-text p {
+    font-size: 15px;
+    color: #4a6075;
+    line-height: 1.5;
+}
+
+/* Правая колонка — форма */
+
+.employee-access-form-column {
+    background: linear-gradient(145deg, #f0f7ff, #e3f0fd);
+    border-radius: 32px;
+    padding: 35px;
+    border: 1px solid rgba(33, 150, 243, 0.2);
+}
+
+.employee-access-form-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #0a2540;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.employee-access-form-title i {
+    color: #2196f3;
+    font-size: 28px;
+}
+
+.employee-access-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.employee-access-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.employee-access-form-group label {
+    font-weight: 600;
+    color: #0a2540;
+    font-size: 14px;
+}
+
+.employee-access-control {
+    padding: 14px 18px;
+    border-radius: 16px;
+    border: 1px solid rgba(33, 150, 243, 0.2);
+    font-size: 15px;
+    transition: all 0.2s;
+    background: #ffffff;
+}
+
+.employee-access-control:focus {
+    outline: none;
+    border-color: #2196f3;
+    box-shadow: 0 0 0 3px rgba(33, 150, 243, 0.1);
+}
+
+.employee-access-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.employee-access-checkbox {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.employee-access-checkbox input {
+    width: 18px;
+    height: 18px;
+}
+
+.employee-access-checkbox label {
+    font-size: 14px;
+    color: #4a6075;
+}
+
+.employee-access-checkbox a {
+    color: #2196f3;
+    text-decoration: none;
+}
+
+.employee-access-checkbox a:hover {
+    text-decoration: underline;
+}
+
+.employee-access-submit-btn {
+    background: linear-gradient(145deg, #2196f3, #1e88e5);
+    color: #ffffff;
+    border: none;
+    padding: 16px 30px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 15px;
+    box-shadow: 0 10px 20px -8px #2196f3;
+}
+
+.employee-access-submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -8px #2196f3;
+}
+
+/* Адаптивность */
+
+@media (max-width: 1100px) {
+    .employee-access-block {
+        padding: 50px 40px;
+    }
+
+    .employee-access-title {
+        font-size: 42px;
+    }
+
+    .employee-access-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+}
+
+@media (max-width: 800px) {
+    .employee-access-block {
+        padding: 42px 32px;
+        border-radius: 40px;
+    }
+
+    .employee-access-title {
+        font-size: 36px;
+    }
+
+    .employee-access-info-column,
+    .employee-access-form-column {
+        padding: 26px 22px;
+        border-radius: 28px;
+    }
+
+    .employee-access-form-row {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .employee-access-block {
+        padding: 32px 22px;
+        border-radius: 28px;
+    }
+
+    .employee-access-title {
+        font-size: 30px;
+    }
+
+    .employee-access-description {
+        font-size: 16px;
+    }
+
+    .employee-access-chip {
+        font-size: 12px;
+        padding: 7px 16px;
+    }
+
+    .employee-access-info-column,
+    .employee-access-form-column {
+        padding: 22px 18px;
+        border-radius: 24px;
+    }
+
+    .employee-access-info-text p {
+        font-size: 14px;
+    }
+
+    .employee-access-control {
+        font-size: 14px;
+        padding: 12px 14px;
+    }
+
+    .employee-access-submit-btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px 20px;
+        font-size: 15px;
+    }
+}
